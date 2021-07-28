@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link } from "gatsby"
-
 import styled from "styled-components"
 import { Composition, Box } from "atomic-layout"
 
@@ -14,6 +13,7 @@ const StyledUl = styled.ul`
   justify-content: space-around;
   margin: 0;
 `
+
 const StyledLi = styled.li`
   margin: 0;
 
@@ -37,15 +37,13 @@ const StyledLi = styled.li`
   }
 `
 
-const Header = ({ data }) => {
-  const posts = data.allMarkdownRemark.nodes
-
+const Header = () => {
   return (
     <Composition
       areas={`
-          logo
-          header
-        `}
+            logo
+            menu
+          `}
     >
       {Areas => (
         <>
@@ -54,21 +52,20 @@ const Header = ({ data }) => {
               <div>LOGO</div>
             </Box>
           </Areas.Logo>
-          <Areas.Header>
+          <Areas.Menu>
             <StyledUl>
-              {posts.map(post => {
-                const title = post.frontmatter.title || post.fields.slug
-
-                return (
-                  <StyledLi key={post.fields.slug}>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <div itemProp="headline">{title}</div>
-                    </Link>
-                  </StyledLi>
-                )
-              })}
+              <StyledLi>
+                <Link to={"/home"} itemProp="url">
+                  <div itemProp="headline">title</div>
+                </Link>
+              </StyledLi>
+              <StyledLi>
+                <Link to={"/foo"} itemProp="url">
+                  <div itemProp="headline">title 2</div>
+                </Link>
+              </StyledLi>
             </StyledUl>
-          </Areas.Header>
+          </Areas.Menu>
         </>
       )}
     </Composition>
