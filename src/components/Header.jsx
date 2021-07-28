@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { Composition, Box } from "atomic-layout"
+import { ReactComponent as Logo } from "../images/logo.svg"
 
 const StyledLogo = styled.div`
   padding: var(--spacing-12);
@@ -49,7 +50,7 @@ const Header = () => {
         <>
           <Areas.Logo>
             <Box as={StyledLogo} flex justifyContent="center">
-              <div>LOGO</div>
+              <Logo width={48} />
             </Box>
           </Areas.Logo>
           <Areas.Menu>
