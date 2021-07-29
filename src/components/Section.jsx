@@ -1,8 +1,13 @@
 import * as React from "react"
 import styled from "styled-components"
-import { Box } from "atomic-layout"
+import { Composition, Box } from "atomic-layout"
 
 import { Button } from "../components/Button"
+import { Grid } from "../components/Grid"
+import one from "../images/one.png"
+import two from "../images/two.png"
+import three from "../images/three.png"
+import four from "../images/four.png"
 
 const Container = styled.div`
   background-color: var(--color-heading);
@@ -16,6 +21,7 @@ const StyledBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  margin-top: var(--spacing-20);
 `
 
 const StyledTitle = styled.h3`
@@ -33,23 +39,58 @@ const StyledText = styled.span`
   text-transform: capitalize;
 `
 
+const StyledImage = styled.img`
+  max-width: 100%;
+`
+
+const templateTablet = `
+  left centerTop right
+  left centerBottom right
+  / auto auto auto
+`
+
+const Images = () => {
+  return (
+    <Composition template={templateTablet} gap={10}>
+      {Areas => (
+        <>
+          <Areas.Left>
+            <StyledImage src={one} alt="Logo" />
+          </Areas.Left>
+          <Areas.CenterTop>
+            <StyledImage src={three} alt="Logo" />
+          </Areas.CenterTop>
+          <Areas.CenterBottom>
+            <StyledImage src={four} alt="Logo" />
+          </Areas.CenterBottom>
+          <Areas.Right>
+            <StyledImage src={two} alt="Logo" />
+          </Areas.Right>
+        </>
+      )}
+    </Composition>
+  )
+}
+
 const Section = () => {
   return (
     <Container>
-      <Box>images</Box>
-      <StyledBox>
-        <Box>
-          <StyledTitle>defined by art</StyledTitle>
-          <StyledText>
-            lorem this button component has a primary state that changes its
-            color. When setting the primary prop to true, we are swapping out
-            its background and text color.
-          </StyledText>
-        </Box>
-        <Box flex justifyContent="flex-end">
-          <Button primary>follow me</Button>
-        </Box>
-      </StyledBox>
+      <Grid>
+        <Images />
+        <StyledBox>
+          <Box>
+            <StyledTitle>defined by art</StyledTitle>
+            <StyledText>
+              lorem this button component has a primary state that changes its
+              color. When setting the primary prop to true, we are swapping out
+              its background and text color.
+            </StyledText>
+          </Box>
+          <Box flex justifyContent="flex-end">
+            <Button primary>follow me</Button>
+          </Box>
+        </StyledBox>
+      </Grid>
     </Container>
   )
 }
