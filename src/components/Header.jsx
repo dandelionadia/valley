@@ -5,13 +5,18 @@ import { Composition, Box } from "atomic-layout"
 import { ReactComponent as Logo } from "../images/logo.svg"
 
 const StyledLogo = styled.div`
-  padding: var(--spacing-12);
+  margin-bottom: var(--spacing-6);
+`
+
+const Container = styled.div`
+  padding: var(--spacing-16);
 `
 
 const StyledUl = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: var(--spacing-8);
   margin: 0;
 `
 
@@ -47,7 +52,7 @@ const Header = () => {
           `}
     >
       {Areas => (
-        <>
+        <Container>
           <Areas.Logo>
             <Box as={StyledLogo} flex justifyContent="center">
               <Logo width={48} />
@@ -56,18 +61,33 @@ const Header = () => {
           <Areas.Menu>
             <StyledUl>
               <StyledLi>
-                <Link to={"/home"} itemProp="url">
-                  <div itemProp="headline">title</div>
+                <Link to={"/about"} itemProp="url">
+                  <div itemProp="headline">about me</div>
                 </Link>
               </StyledLi>
               <StyledLi>
-                <Link to={"/foo"} itemProp="url">
-                  <div itemProp="headline">title 2</div>
+                <Link to={"/paintings"} itemProp="url">
+                  <div itemProp="headline">paintings</div>
+                </Link>
+              </StyledLi>
+              <StyledLi>
+                <Link to={"/code"} itemProp="url">
+                  <div itemProp="headline">code</div>
+                </Link>
+              </StyledLi>
+              <StyledLi>
+                <Link to={"/books"} itemProp="url">
+                  <div itemProp="headline">books</div>
+                </Link>
+              </StyledLi>
+              <StyledLi>
+                <Link to={"/photos"} itemProp="url">
+                  <div itemProp="headline">photos</div>
                 </Link>
               </StyledLi>
             </StyledUl>
           </Areas.Menu>
-        </>
+        </Container>
       )}
     </Composition>
   )
