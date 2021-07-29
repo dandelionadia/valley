@@ -27,7 +27,7 @@ const StyledLi = styled.li`
     display: block;
     text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: 2px;
+    letter-spacing: var(--letter-spacing-2);
 
     padding: var(--spacing-4);
     background-image: linear-gradient(125deg, black 50%, red 50% 100%);
