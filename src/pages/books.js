@@ -1,8 +1,8 @@
 import * as React from "react"
 import { DefaultLayout } from "../components/DefaultLayout"
 
-const Foo = () => {
-  return <DefaultLayout> Foo</DefaultLayout>
+const Books = () => {
+  return <DefaultLayout>books</DefaultLayout>
 }
 
-export default Foo
+export default Books
