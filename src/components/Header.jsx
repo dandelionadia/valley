@@ -10,6 +10,7 @@ const StyledLogo = styled.div`
 
 const Container = styled.div`
   padding: var(--spacing-16);
+  padding-bottom: var(--spacing-12);
 `
 
 const StyledUl = styled.ul`
