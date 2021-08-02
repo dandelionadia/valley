@@ -1,14 +1,9 @@
 import * as React from "react"
 
 import { DefaultLayout } from "../components/DefaultLayout"
-import Section from "../components/Section"
 
 const Home = () => {
-  return (
-    <DefaultLayout>
-      <Section />
-    </DefaultLayout>
-  )
+  return <DefaultLayout></DefaultLayout>
 }
 
 export default Home
