@@ -40,7 +40,9 @@ const StyledText = styled.span`
 `
 
 const StyledImage = styled.img`
-  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 `
 
 const templateTablet = `
@@ -51,7 +53,7 @@ const templateTablet = `
 
 const Images = () => {
   return (
-    <Composition template={templateTablet} gap={10}>
+    <Composition template={templateTablet} gap={20}>
       {Areas => (
         <>
           <Areas.Left>
