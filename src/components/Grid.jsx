@@ -8,13 +8,13 @@ const StyledBox = styled.div`
 
 export const Grid = ({ children, fluid }) => {
   const maxWidths = fluid
-    ? { maxWidth: "1400px" }
-    : { maxWidthSm: "540px", maxWidthMd: "1200px" }
+    ? { width: "1400px" }
+    : { widthSm: "540px", widthMd: "1200px" }
 
   return (
     <Box
       as={StyledBox}
-      width="100%"
+      maxWidth="100%"
       {...maxWidths}
       marginHorizontal="auto"
       paddingHorizontal={2.6}
