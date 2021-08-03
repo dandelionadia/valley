@@ -17,8 +17,7 @@ export const Grid = ({ children, fluid }) => {
       maxWidth="100%"
       {...maxWidths}
       marginHorizontal="auto"
-      paddingHorizontal={2.6}
-      paddingHorizontalLg={8}
+      paddingHorizontal="var(--spacing-12)"
     >
       {children}
     </Box>
