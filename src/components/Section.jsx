@@ -6,8 +6,6 @@ import { Grid } from "../components/Grid"
 const Container = styled.div`
   background-color: var(--color-heading);
   padding: var(--spacing-24);
-  display: grid;
-  gap: 5rem;
 `
 
 const Section = ({ children }) => {
