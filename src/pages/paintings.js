@@ -19,7 +19,7 @@ const StyledBox = styled.div`
 `
 
 const StyledTitle = styled.h3`
-  color: var(--color-white);
+  color: var(--color-gray-light);
   font-size: var(--fontSize-3);
   font-weight: 100;
   text-transform: uppercase;
