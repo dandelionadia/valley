@@ -4,7 +4,7 @@ export const Button = styled.button`
   background: ${props => (props.primary ? "#4159de" : "#f7fafc")};
   color: ${props => (props.primary ? "#f7fafc" : "alevioletred")};
 
-  font-size: 14xpx;
+  font-size: 14px;
   margin: 1em;
   padding: 0.7rem 2em;
   border: none;
