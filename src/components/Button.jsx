@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Button = styled.button`
-  background: ${props => (props.primary ? "#4159de" : "hite")};
+  background: ${props => (props.primary ? "#4159de" : "#f7fafc")};
   color: ${props => (props.primary ? "#f7fafc" : "alevioletred")};
 
   font-size: 14xpx;
