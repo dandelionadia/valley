@@ -11,20 +11,12 @@ import three from "../images/three.png"
 import four from "../images/four.png"
 
 const StyledBox = styled.div`
+  color: var(--color-gray-light);
   text-transform: uppercase;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-top: var(--spacing-20);
-`
-
-const StyledTitle = styled.h3`
-  color: var(--color-gray-light);
-  font-size: var(--fontSize-3);
-  font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-3);
-  margin-top: 0;
 `
 
 const StyledText = styled.span`
@@ -75,7 +67,7 @@ const Paintings = () => {
         <Images />
         <StyledBox>
           <Box>
-            <StyledTitle>defined by art</StyledTitle>
+            <Box as="h3">defined by art</Box>
             <StyledText>
               lorem this button component has a primary state that changes its
               color. When setting the primary prop to true, we are swapping out
