@@ -39,7 +39,7 @@ const StyledImage = styled.img`
   height: 100%;
 `
 
-const templateTablet = `
+const imagesTemplate = `
   left centerTop right
   left centerBottom right
   / 1fr 1fr 1fr
@@ -47,7 +47,7 @@ const templateTablet = `
 
 const Images = () => {
   return (
-    <Composition template={templateTablet} gap={20}>
+    <Composition template={imagesTemplate} gap={20}>
       {Areas => (
         <>
           <Areas.Left>
