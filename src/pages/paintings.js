@@ -5,6 +5,7 @@ import { DefaultLayout } from "../components/DefaultLayout"
 
 import Section from "../components/Section"
 import { Button } from "../components/Button"
+import { Grid } from "../components/Grid"
 import one from "../images/one.png"
 import two from "../images/two.png"
 import three from "../images/three.png"
@@ -64,20 +65,22 @@ const Paintings = () => {
   return (
     <DefaultLayout>
       <Section dark light>
-        <Images />
-        <StyledBox>
-          <Box>
-            <Box as="h3">defined by art</Box>
-            <StyledText>
-              lorem this button component has a primary state that changes its
-              color. When setting the primary prop to true, we are swapping out
-              its background and text color.
-            </StyledText>
-          </Box>
-          <Box flex justifyContent="flex-end">
-            <Button primary>follow me</Button>
-          </Box>
-        </StyledBox>
+        <Grid>
+          <Images />
+          <StyledBox>
+            <Box>
+              <Box as="h3">defined by art</Box>
+              <StyledText>
+                lorem this button component has a primary state that changes its
+                color. When setting the primary prop to true, we are swapping
+                out its background and text color.
+              </StyledText>
+            </Box>
+            <Box flex justifyContent="flex-end">
+              <Button primary>follow me</Button>
+            </Box>
+          </StyledBox>
+        </Grid>
       </Section>
     </DefaultLayout>
   )
