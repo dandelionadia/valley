@@ -63,7 +63,7 @@ const Images = () => {
 const Paintings = () => {
   return (
     <DefaultLayout>
-      <Section>
+      <Section dark light>
         <Images />
         <StyledBox>
           <Box>
