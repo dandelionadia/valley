@@ -62,6 +62,9 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-gray-light: #f7fafc;
+  --letter-spacing-2: 2.5px;
+  --letter-spacing-3: 4px;
 }
 
 /* HTML elements */
@@ -104,10 +107,11 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  margin-top: var(--spacing-12);
+  margin-top: 0;
   margin-bottom: var(--spacing-6);
   line-height: var(--lineHeight-tight);
-  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-3);
 }
 
 h2,
@@ -115,8 +119,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--fontWeight-bold);
-  color: var(--color-heading);
+  font-weight: var(--fontWeight-medium);
 }
 
 h1 {
@@ -130,7 +133,7 @@ h2 {
 }
 
 h3 {
-  font-size: var(--fontSize-4);
+  font-size: var(--fontSize-3);
 }
 
 h4 {

@@ -10,6 +10,7 @@ const StyledLogo = styled.div`
 
 const Container = styled.div`
   padding: var(--spacing-16);
+  padding-bottom: var(--spacing-12);
 `
 
 const StyledUl = styled.ul`
@@ -27,7 +28,7 @@ const StyledLi = styled.li`
     display: block;
     text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: 2px;
+    letter-spacing: var(--letter-spacing-2);
 
     padding: var(--spacing-4);
     background-image: linear-gradient(125deg, black 50%, red 50% 100%);

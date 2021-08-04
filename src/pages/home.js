@@ -1,8 +1,9 @@
 import * as React from "react"
+
 import { DefaultLayout } from "../components/DefaultLayout"
 
 const Home = () => {
-  return <DefaultLayout> home</DefaultLayout>
+  return <DefaultLayout></DefaultLayout>
 }
 
 export default Home
