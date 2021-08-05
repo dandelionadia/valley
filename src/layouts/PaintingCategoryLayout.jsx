@@ -1,15 +1,16 @@
-import * as React from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import { DefaultLayout } from "../layouts/DefaultLayout"
-import PaintingsLayout from "../layouts/PaintingsLayout"
 
-const paintings = ({ data }) => {
+import { DefaultLayout } from "./DefaultLayout"
+import PaintingsLayout from "./PaintingsLayout"
+
+const PaintingCategoryLayout = ({ data }) => {
   console.log(data)
   return (
     <DefaultLayout>
       <PaintingsLayout>
         <div>
-          {data.paintings.nodes.map(painting => {
+          {data?.paintings.nodes.map(painting => {
             return <img src={painting.frontmatter.imageUrl} />
           })}
         </div>
@@ -18,12 +19,15 @@ const paintings = ({ data }) => {
   )
 }
 
-export default paintings
+export default PaintingCategoryLayout
 
 export const pageQuery = graphql`
-  query {
+  query GetPainting($category: String) {
     paintings: allMarkdownRemark(
-      filter: { fileAbsolutePath: { glob: "**/content/paintings/*" } }
+      filter: {
+        fileAbsolutePath: { glob: "**/content/paintings/*" }
+        frontmatter: { category: { eq: $category } }
+      }
     ) {
       nodes {
         frontmatter {
