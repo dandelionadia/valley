@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import { Composition, Box } from "atomic-layout"
 import styled from "styled-components"
 
@@ -62,6 +63,18 @@ const Images = () => {
 }
 
 const PaintingsLayout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query PaintingsLayoutQuery {
+      site {
+        siteMetadata {
+          social {
+            instagram
+          }
+        }
+      }
+    }
+  `)
+  const social = data.site.siteMetadata?.social
   return (
     <>
       <Section dark light>
@@ -77,7 +90,14 @@ const PaintingsLayout = ({ children }) => {
               </StyledText>
             </Box>
             <Box flex justifyContent="flex-end">
-              <Button primary>follow me</Button>
+              <Button primary>
+                <a
+                  href={`https://instagram.com/${social?.instagram || ``}`}
+                  target="_blank"
+                >
+                  follow me
+                </a>
+              </Button>
             </Box>
           </StyledBox>
         </Grid>
