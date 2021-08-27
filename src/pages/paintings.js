@@ -31,7 +31,6 @@ const StyledImage = styled.img`
 `
 
 const paintings = ({ data }) => {
-  console.log(data)
   return (
     <DefaultLayout>
       <PaintingsLayout>
