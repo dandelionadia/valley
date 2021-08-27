@@ -44,16 +44,16 @@ const Images = () => {
       {Areas => (
         <>
           <Areas.Left>
-            <StyledImage src={one} alt="Logo" />
+            <StyledImage src={one} />
           </Areas.Left>
           <Areas.CenterTop>
-            <StyledImage src={three} alt="Logo" />
+            <StyledImage src={three} />
           </Areas.CenterTop>
           <Areas.CenterBottom>
-            <StyledImage src={four} alt="Logo" />
+            <StyledImage src={four} />
           </Areas.CenterBottom>
           <Areas.Right>
-            <StyledImage src={two} alt="Logo" />
+            <StyledImage src={two} />
           </Areas.Right>
         </>
       )}
