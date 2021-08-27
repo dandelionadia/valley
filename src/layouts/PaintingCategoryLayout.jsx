@@ -5,7 +5,6 @@ import { DefaultLayout } from "./DefaultLayout"
 import PaintingsLayout from "./PaintingsLayout"
 
 const PaintingCategoryLayout = ({ data }) => {
-  console.log(data)
   return (
     <DefaultLayout>
       <PaintingsLayout>
