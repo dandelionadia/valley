@@ -1,5 +1,5 @@
 import * as React from "react"
-import { DefaultLayout } from "../components/DefaultLayout"
+import { DefaultLayout } from "../layouts/DefaultLayout"
 
 const Books = () => {
   return <DefaultLayout>books</DefaultLayout>

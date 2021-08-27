@@ -56,6 +56,48 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+  ///
+  const categoryLayout = path.resolve(
+    `./src/layouts/PaintingCategoryLayout.jsx`
+  )
+
+  // request all paintings
+  const allPaintings = await graphql(
+    `
+      {
+        paintings: allMarkdownRemark(
+          filter: { fileAbsolutePath: { glob: "**/content/paintings/*" } }
+        ) {
+          nodes {
+            frontmatter {
+              category
+            }
+          }
+        }
+      }
+    `
+  )
+  // collect all existing categories (concept, characters)
+  const categories = allPaintings.data.paintings.nodes.reduce(
+    (acc, painting) => {
+      acc.add(painting.frontmatter.category)
+      return acc
+    },
+    new Set()
+  )
+
+  // for each category create a page
+  // "concept" -> "/paintings/concept"
+  categories.forEach(category => {
+    createPage({
+      path: `/paintings/${category}`,
+      component: categoryLayout,
+      context: {
+        category,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

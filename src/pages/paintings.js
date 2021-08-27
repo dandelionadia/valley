@@ -1,86 +1,69 @@
 import * as React from "react"
-import { Composition, Box } from "atomic-layout"
+import { graphql } from "gatsby"
 import styled from "styled-components"
-import { DefaultLayout } from "../components/DefaultLayout"
 
-import Section from "../components/Section"
-import { Button } from "../components/Button"
-import one from "../images/one.png"
-import two from "../images/two.png"
-import three from "../images/three.png"
-import four from "../images/four.png"
+import { DefaultLayout } from "../layouts/DefaultLayout"
+import PaintingsLayout from "../layouts/PaintingsLayout"
 
-const StyledBox = styled.div`
-  color: var(--color-gray-light);
-  text-transform: uppercase;
+const StyledGallery = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  margin-top: var(--spacing-20);
-`
-
-const StyledText = styled.span`
-  color: var(--color-text-light);
-  font-size: var(--fontSize-1);
-  text-transform: capitalize;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: masonry;
+  gap: var(--spacing-5);
+  grid-auto-flow: dense;
 `
 
 const StyledImage = styled.img`
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+
+  ${props =>
+    props.imageIndex &&
+    `
+      grid-column: span 2;
+      grid-row: span 2;
+
+      @media (max-width: 768px) {
+        grid-column: span 1;
+      }
+    `}
 `
 
-const imagesTemplate = `
-  left centerTop right
-  left centerBottom right
-  / 1fr 1fr 1fr
-`
-
-const Images = () => {
-  return (
-    <Composition template={imagesTemplate} gap={20}>
-      {Areas => (
-        <>
-          <Areas.Left>
-            <StyledImage src={one} alt="Logo" />
-          </Areas.Left>
-          <Areas.CenterTop>
-            <StyledImage src={three} alt="Logo" />
-          </Areas.CenterTop>
-          <Areas.CenterBottom>
-            <StyledImage src={four} alt="Logo" />
-          </Areas.CenterBottom>
-          <Areas.Right>
-            <StyledImage src={two} alt="Logo" />
-          </Areas.Right>
-        </>
-      )}
-    </Composition>
-  )
-}
-
-const Paintings = () => {
+const paintings = ({ data }) => {
   return (
     <DefaultLayout>
-      <Section>
-        <Images />
-        <StyledBox>
-          <Box>
-            <Box as="h3">defined by art</Box>
-            <StyledText>
-              lorem this button component has a primary state that changes its
-              color. When setting the primary prop to true, we are swapping out
-              its background and text color.
-            </StyledText>
-          </Box>
-          <Box flex justifyContent="flex-end">
-            <Button primary>follow me</Button>
-          </Box>
-        </StyledBox>
-      </Section>
+      <PaintingsLayout>
+        <StyledGallery>
+          {data.paintings.nodes.map((painting, index) => {
+            const imageIndex = (index + 1) % 3 === 0
+            return (
+              <StyledImage
+                src={painting.frontmatter.imageUrl}
+                imageIndex={imageIndex}
+              />
+            )
+          })}
+        </StyledGallery>
+      </PaintingsLayout>
     </DefaultLayout>
   )
 }
 
-export default Paintings
+export default paintings
+
+export const pageQuery = graphql`
+  query {
+    paintings: allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/content/paintings/*" } }
+    ) {
+      nodes {
+        frontmatter {
+          title
+          description
+          imageUrl
+        }
+      }
+    }
+  }
+`
